@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
 	entry: [
@@ -31,12 +32,12 @@ module.exports = {
 			Controls: 'app/components/Controls.jsx',
 			applicationStyles: 'app/styles/app.scss'
 		},
-		extensions: ['', '.js', '.jsx'] 
+		extensions: ['', '.js', '.jsx']
 	},
 	module: {
 		loaders: [
 			{
-				loader: 'babel-loader',	
+				loader: 'babel-loader',
 				query: {
 					presets: ['react', 'es2015', 'stage-0']
 				},
@@ -45,6 +46,10 @@ module.exports = {
 			}
 		]
 	},
+	sassLoader: {
+		includePaths: [
+			path.resolve(__dirname, './node_modules/foundation-sites/scss')
+		]
+	},
 	devtool:'cheap-module-eval-source-map'
 };
-
